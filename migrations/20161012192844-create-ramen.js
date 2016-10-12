@@ -1,3 +1,10 @@
+// INITIAL MIGRATION
+// This is the 0-state of the ramen table.
+// When executed, the table will be created.
+
+// This is also what sequelize db:migrate will refer to
+// as the base schema. All undos revert to this.
+
 "use strict";
 
 module.exports = {
