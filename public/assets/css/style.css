@@ -1,0 +1,143 @@
+@font-face {
+    font-family: 'YOZAKURA-Regular';
+    src: url('../font/YOZAKURA-Regular.eot');
+    src: url('../font/YOZAKURA-Regular.woff2') format('woff2'), url('../font/YOZAKURA-Regular.woff') format('woff'), url('../font/YOZAKURA-Regular.ttf') format('truetype'), url('../font/YOZAKURA-Regular.svg#YOZAKURA-Regular') format('svg'), url('../font/YOZAKURA-Regular.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'chopsticks';
+    src: url('../font/chopsticks.eot?engi2a');
+    src: url('../font/chopsticks.eot?engi2a#iefix') format('embedded-opentype'), url('../font/chopsticks.ttf?engi2a') format('truetype'), url('../font/chopsticks.woff?engi2a') format('woff'), url('../font/chopsticks.svg?engi2a#chopsticks') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'chopsticks' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-chopsticks:before {
+    content: "\e900";
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.navbar-brand {
+    font-family: 'YOZAKURA-Regular';
+    font-size: 36px;
+}
+
+.nav-img .navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.nav-img .navbar-brand>img {
+    padding: 7px 14px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+}
+
+body>.container {
+    padding: 60px 15px 0;
+}
+
+.container .text-muted {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.footer>.container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+code {
+    font-size: 80%;
+}
+
+.panel {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.panel-default {
+    border-color: transparent;
+}
+
+.panel-heading {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.panel-body {
+    padding: 0 15px;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+.radio-inline {
+    margin-left: 10px;
+    margin-bottom: 15px;
+}
+
+.well {
+    margin: 0;
+}
+
+.btn-sm {
+    margin: 10px auto;
+}
+
+.ramen-create {
+    margin-top: 15px;
+}
+
+.ramen {
+    padding: 15px;
+}
+
+.ramen-bowl {
+    margin-right: 20px;
+    max-width: 60px;
+}
+
+.ramen-name {
+    font-weight: 400;
+    font-size: 20px;
+    color: #333;
+}
+
+.fa {
+    margin-right: 5px;
+}
