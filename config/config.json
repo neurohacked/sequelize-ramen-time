@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": ",g{$6AUh89yUExp8a=hsM;7",
+    "password": "",
     "database": "ramen_db",
     "host": "127.0.0.1",
     "dialect": "mysql"

@@ -5,8 +5,8 @@ const router = express.Router();
 
 router.get('/sign-out', function(req, res) {
     req.session.destroy(function(err) {
-        res.redirect('/')
-    })
+        res.redirect('/');
+    });
 });
 
 
@@ -45,10 +45,10 @@ router.post('/login', function(req, res) {
             // if the result is anything but true (password invalid)
             else {
                 // redirect user to sign in
-                res.redirect('/')
+                res.redirect('/');
             }
         });
-    })
+    });
 });
 
 
@@ -62,8 +62,8 @@ router.post('/create', function(req, res) {
     }).then(function(users) {
 
         if (users.length > 0) {
-            console.log(users)
-            res.send('We already have an email or username for this account')
+            console.log(users);
+            res.send('We already have an email or username for this account');
         } else {
 
             // Using bcrypt, generate a 10-round salt,
@@ -96,7 +96,7 @@ router.post('/create', function(req, res) {
                             req.session.user_email = user.email;
 
                             // redirect to home on login
-                            res.redirect('/')
+                            res.redirect('/');
                         });
                 });
             });
