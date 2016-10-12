@@ -1,29 +1,35 @@
 {
   "name": "sequelize-ramen-time",
   "version": "1.0.0",
-  "description": "Create and eat digital ramen.",
-  "main": "server.js",
+  "description": "This repository demonstrates the usage of sequelize within an express application. The implemented logic is a simple task tracking tool.",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/neurohacked/sequelize-ramen-time.git"
   },
-  "author": "neurohacked",
-  "license": "MIT",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/neurohacked/sequelize-ramen-time/issues"
   },
   "homepage": "https://github.com/neurohacked/sequelize-ramen-time#readme",
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
-    "express-handlebars": "^3.0.0",
-    "express-session": "^1.14.1",
-    "method-override": "^2.3.6",
-    "morgan": "^1.7.0",
+    "bcryptjs": "^2.3.0",
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "express-handlebars": "^2.0.1",
+    "express-session": "^1.13.0",
+    "method-override": "^2.3.5",
+    "morgan": "~1.6.1",
     "mysql": "^2.11.1",
-    "serve-favicon": "^2.3.0"
+    "sequelize": "^3.3.2",
+    "sequelize-cli": "^1.7.1",
+    "serve-favicon": "~2.3.0"
   }
 }

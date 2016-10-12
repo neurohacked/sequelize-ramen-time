@@ -1,47 +1,66 @@
-/*
- * functions for routing
- * and the logic of each route.
- */
-var express = require('express');
-var router = express.Router();
-var ramen = require('../models/ramen.js');
+const models = require('../models');
+const express = require('express');
+const router = express.Router();
 
 router.get('/', function(req, res) {
-    ramen.all(function(data) {
-        var hbsObject = {
-            ramen: data
-        };
-        // console.log(hbsObject);
-        res.render('index', hbsObject);
-    });
+    models.Ramen.findAll({
+            include: [models.User]
+        })
+        // connect the findAll to this .then
+        .then(function(data) {
+            // grab the user info from our req.
+            // How is it in our req?
+            // This info gets saved to req via the users_controller.js file.
+            res.render('ramen/index', {
+                user_id: req.session.user_id,
+                username: req.session.user_name,
+                email: req.session.user_email,
+                logged_in: req.session.logged_in,
+                ramen: data
+            });
+        });
 });
 
-router.post('/ramen/create', function(req, res) {
-    ramen.create(['name', 'image', 'devoured'], [req.body.name, req.body.image, req.body.devoured], function() {
-        res.redirect('/');
-    });
+router.post('/create', function(req, res) {
+    models.Ramen.create({
+            ramen_name: req.body.ramen_name,
+            image: req.body.image,
+            devoured: req.body.devoured,
+            user_id: req.session.user_id
+        })
+        // connect the .create to this .then
+        .then(function() {
+            res.redirect('/');
+        });
 });
 
-router.put('/ramen/devour/:id', function(req, res) {
-    var condition = 'id = ' + req.params.id;
+router.put('/update/:id', function(req, res) {
+    models.Ramen.update({
+            devoured: req.body.devoured
+        }, {
+            where: {
+                id: req.params.id
+            }
+        })
+        // connect it to this .then.
+        .then(function(result) {
+            res.redirect('/');
+        }, function(rejectedPromiseError) {
 
-    console.log('Ramen', condition);
-
-    ramen.devour({
-        devoured: req.body.devoured
-    }, condition, function() {
-        res.redirect('/');
-    });
+        });
 });
 
-router.delete('/ramen/trash/:id', function(req, res) {
-    var condition = 'id = ' + req.params.id;
+router.delete('/delete/:id', function(req, res) {
+    models.Ramen.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        // connect it to this .then.
+        .then(function() {
+            res.redirect('/');
+        });
 
-    console.log('Ramen', condition);
-
-    ramen.trash(condition, function() {
-        res.redirect('/');
-    });
 });
 
 module.exports = router;

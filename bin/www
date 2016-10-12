@@ -5,25 +5,24 @@
 
 // This way, we can set certain properties here
 // rather than having them take up space in server.js.
-const debug = require('debug')('express-example');
+var debug = require('debug')('sequelize-ramen-time');
 
 // we bring in the app we exported from server.js
-const app = require('../server');
+var app = require('../server');
 
 // we bring in the models we exported with index.js
-const models = require("../models");
+var models = require("../models");
 
 // we set the port of the app
 app.set('port', process.env.PORT || 3000);
 
-
 // we sync the models with our db
-// (thus creating the appropriate tables)
-models.sequelize.sync().then(function() {
-    // set our app to listen to the port we set above
-    const server = app.listen(app.get('port'), function() {
-        // then save a log of the listening to our debugger.
-        debug('Express server listening on port ' + server.address().port);
-        console.log('Express server listening on port ' + server.address().port);
-    });
+// (thus creating the apropos tables)
+models.sequelize.sync().then(function () {
+	// set our app to listen to the port we set above
+  var server = app.listen(app.get('port'), function() {
+  	// then save a log of the listening to our debugger.
+    debug('Express server listening on port ' + server.address().port);
+    console.log('Express server listening on port ' + server.address().port);
+  });
 });

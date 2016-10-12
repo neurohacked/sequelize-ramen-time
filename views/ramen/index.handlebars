@@ -1,3 +1,7 @@
+{{#unless logged_in}}
+    <p class="text-center"> Sign up or Sign in to add some ramen!! </p>
+{{/unless}}
+
 <div class="container">
     <div class="row">
         <div class="col col-sm-6">
@@ -16,15 +20,13 @@
                                                 <img class="ramen-bowl img-responsive" src="{{this.image}}" alt="Bowl of Ramen">
                                             </div>
                                             <div class="media-body">
-                                                <h4 class="ramen-name media-heading text-center">{{this.name}}</h4>
-                                                <form action="ramen/devour/{{this.id}}?_method=PUT" method="POST">
+                                                <h4 class="ramen-name media-heading text-center">{{this.ramen_name}}</h4><h6 class="text-center">Created by {{this.User.username}}</h6>
+                                                <form action="ramen/update/{{this.id}}?_method=PUT" method="POST">
                                                     <input type="hidden" name="devoured" value="true">
                                                     <button class="btn btn-sm btn-success btn-block" type="submit"><span class="icon-chopsticks"></span> Devour</button>
                                                 </form>
-                                                <form action="ramen/trash/{{this.id}}?_method=DELETE" method="POST">
-                                                    <input type="hidden" name="id" value="{{this.id}}">
-                                                    <button class="btn btn-sm btn-danger btn-block" type="submit"><i class="fa fa-trash" aria-hidden="true"></i> Trash</button>
-                                                </form>
+
+                                                {{> ramen/delete-ramen}}
                                             </div>
                                         </div>
                                     </div>
@@ -51,11 +53,7 @@
                                                 <img class="ramen-bowl media-object" src="{{this.image}}" alt="Bowl of Ramen">
                                             </div>
                                             <div class="media-body">
-                                                <h4 class="ramen-name media-heading text-center">{{this.name}}</h4>
-                                                <form action="ramen/trash/{{this.id}}?_method=DELETE" method="POST">
-                                                    <input type="hidden" name="id" value="{{this.id}}">
-                                                    <button class="btn btn-sm btn-warning btn-block" type="submit"><i class="fa fa-ban" aria-hidden="true"></i> Clear</button>
-                                                </form>
+                                                <h4 class="ramen-name media-heading text-center">{{this.ramen_name}}</h4><h6 class="text-center">Created by {{this.User.username}}</h6> {{> ramen/clear-ramen}}
                                             </div>
                                         </div>
                                     </div>
@@ -78,11 +76,12 @@
                     <form class="create-update-form" action="ramen/create" method="POST">
                         <div class="ramen-create modal-body">
                             <div class="alert alert-info alert-dismissible" role="alert" style="display: none">
-                                <button type="button" class="close" data-hide="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Looking for some ramen ideas? Check out this <a class="alert-link" href="http://luckypeach.com/guides/a-guide-to-the-regional-ramen-of-japan/" target="_blank">comprehensive guide</a>.
+                                <button type="button" class="close" data-hide="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Looking for some ramen ideas? Check out this <a class="alert-link" href="http://luckypeach.com/guides/a-guide-to-the-regional-ramen-of-japan/"
+                                    target="_blank">comprehensive guide</a>.
                             </div>
                             <div class="form-group">
-                                <label for="ramen">Ramen Name <a href="#" onclick="$('.alert').show()"><i class="fa fa-info-circle fa-fw"></i></a></label><br>
-                                <input type="text" class="form-control" id="ramen" name="name" placeholder="Enter a name for your ramen. Yes, there is more than one type of ramen..." required>
+                                <label for="ramen_name">Ramen Name <a href="#" onclick="$('.alert').show()"><i class="fa fa-info-circle fa-fw"></i></a></label><br>
+                                <input type="text" class="form-control" id="ramen_name" name="ramen_name" placeholder="Enter a name for your ramen. Yes, there is more than one type of ramen..." required>
                             </div>
                             <div class="form-group">
                                 <label for="image">Ramen Image</label><br>
