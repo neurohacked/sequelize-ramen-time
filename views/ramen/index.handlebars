@@ -15,20 +15,7 @@
                             {{#unless this.devoured}}
                                 <div class="ramen col col-lg-6">
                                     <div class="well">
-                                        <div class="media">
-                                            <div class="media-left media-middle">
-                                                <img class="ramen-bowl img-responsive" src="{{this.image}}" alt="Bowl of Ramen">
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="ramen-name media-heading text-center">{{this.ramen_name}}</h4><h6 class="text-center">Created by {{this.User.username}}</h6>
-                                                <form action="ramen/update/{{this.id}}?_method=PUT" method="POST">
-                                                    <input type="hidden" name="devoured" value="true">
-                                                    <button class="btn btn-sm btn-success btn-block" type="submit"><span class="icon-chopsticks"></span> Devour</button>
-                                                </form>
-
-                                                {{> ramen/delete-ramen}}
-                                            </div>
-                                        </div>
+                                        {{> ramen/available-ramen}}
                                     </div>
                                 </div>
                             {{/unless}}
@@ -48,14 +35,7 @@
                             {{#if this.devoured}}
                                 <div class="ramen col col-lg-6">
                                     <div class="well">
-                                        <div class="media">
-                                            <div class="media-left media-middle">
-                                                <img class="ramen-bowl media-object" src="{{this.image}}" alt="Bowl of Ramen">
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="ramen-name media-heading text-center">{{this.ramen_name}}</h4><h6 class="text-center">Created by {{this.User.username}}</h6> {{> ramen/clear-ramen}}
-                                            </div>
-                                        </div>
+                                        {{> ramen/devoured-ramen}}
                                     </div>
                                 </div>
                             {{/if}}
