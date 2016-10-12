@@ -16,20 +16,25 @@ const users_controller = require('./controllers/users_controller');
 
 // instantiate  app
 const app = express();
-
-// override POST to have DELETE and PUT
-app.use(methodOverride('_method'));
-
 // sessions
-app.set('trust proxy',1);
-app.use(session({
+const sess = {
     secret: 'app',
     cookie: {
         maxAge: null
     },
     resave: true,
     saveUninitialized: true
-}));
+}
+
+if (app.get('env') === 'production') {
+    app.set('trust proxy', 1) // trust first proxy
+    sess.cookie.secure = true // serve secure cookies
+}
+
+app.use(session(sess))
+
+// override POST to have DELETE and PUT
+app.use(methodOverride('_method'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
