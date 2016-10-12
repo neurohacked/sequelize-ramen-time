@@ -47,6 +47,7 @@ app.set('view engine', 'handlebars');
 
 app.use(favicon(__dirname + '/public/assets/img/favicon.ico'));
 app.use(logger('dev'));
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
