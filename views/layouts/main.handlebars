@@ -28,7 +28,7 @@
 				<ul class="nav navbar-nav navbar-right center-block">
 					<li><a class="about" href="#" data-toggle="modal" data-target=".aboutModal">About</a></li>
 					{{#unless logged_in}}
-						<li><a href="/users/sign-in" data-toggle="modal" data-target=".signInModal">Sign In</a></li>
+						<li><a href="#" data-toggle="modal" data-target=".logInModal">Login</a></li>
 						<li><button type="button" class="btn navbar-btn btn-primary" data-toggle="modal" data-target=".signUpModal">Sign Up</button></li>
 					{{/unless}}
 					{{#if logged_in}}
@@ -61,7 +61,7 @@
 			<div class="modal-body">
 				<p><strong>Ramen time!</strong> is a Node.js app using Sequelize and JawsDB for data and migrations.</p>
 				<br />
-				<p><strong>Sign In</strong> or <strong>Sign Up</strong> to create your own ramen that you or others can devour or devour some of the already avaiable ramen made by others.</p>
+				<p><strong>Login</strong> or <strong>Sign Up</strong> to create your own ramen that you or others can devour or devour some of the already avaiable ramen made by others.</p>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
@@ -70,13 +70,13 @@
 	</div>
 </div>
 <!-- Sign In Modal -->
-<div class="modal fade signInModal" tabindex="-1" role="dialog" aria-labelledby="signInModal">
+<div class="modal fade logInModal" tabindex="-1" role="dialog" aria-labelledby="logInModal">
 	<div class="modal-dialog modal-sm" role="document">
 		<!-- Modal content-->
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h5 class="modal-title">Sign In with An Existing Account</h5>
+				<h5 class="modal-title"><strong>Login</strong></h5>
 			</div>
 			<form class="create-update-form" action="/users/login" method="POST">
 				<div class="ramen-create modal-body">
@@ -90,7 +90,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button class="btn btn-md btn-success" type="submit">Sign In</button>
+					<button class="btn btn-md btn-success" type="submit">Login</button>
 				</div>
 			</form>
 		</div>
@@ -103,7 +103,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h5 class="modal-title">Create an Account</h5>
+				<h5 class="modal-title"><strong>Sign Up</strong></h5>
 			</div>
 			<form class="create-update-form" action="/users/create" method="POST">
 				<div class="ramen-create modal-body">
