@@ -5,18 +5,11 @@
 ---
 
 ### Node.js Stack
-* bcryptjs
 * body-parser
-* debug
 * express
 * express-handlebars
-* express-session
 * method-override
-* morgan
 * mysql
-* sequelize
-* sequelize-cli
-* serve-favicon
 
 ### Live
-Live version can be viewed at https://ramen-time.herokuapp.com
+https://ramen-time.herokuapp.com
