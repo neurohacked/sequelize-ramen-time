@@ -25,11 +25,11 @@
 				</a>
 			</div>
 			<div id="navbar-collapsed" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav navbar-right">
+				<ul class="nav navbar-nav navbar-right center-block">
 					<li><a class="about" href="#" data-toggle="modal" data-target=".aboutModal">About</a></li>
 					{{#unless logged_in}}
 						<li><a href="/users/sign-in" data-toggle="modal" data-target=".signInModal">Sign In</a></li>
-						<li><button type="button" class="btn navbar-btn btn-primary center-block" data-toggle="modal" data-target=".signUpModal">Sign Up</button></li>
+						<li><button type="button" class="btn navbar-btn btn-primary" data-toggle="modal" data-target=".signUpModal">Sign Up</button></li>
 					{{/unless}}
 					{{#if logged_in}}
 						<ul class="nav navbar-nav">
