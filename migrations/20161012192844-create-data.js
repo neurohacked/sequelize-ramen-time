@@ -1,5 +1,5 @@
 // INITIAL MIGRATION
-// This is the 0-state of the ramen table.
+// This is the 0-state of the data table.
 // When executed, the table will be created.
 
 // This is also what sequelize db:migrate will refer to
